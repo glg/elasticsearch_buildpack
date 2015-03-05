@@ -33,8 +33,8 @@ if which apt-get; then
   sudo apt-get install --yes oracle-java8-installer
   sudo apt-get install --yes oracle-java8-set-default
   echo '==> Elasticize'
-  wget wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.deb
-  dpkg --install elasticsearch-1.0.1.deb
+  sudo wget wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.deb
+  sudo dpkg --install elasticsearch-1.0.1.deb
   sudo /usr/share/elasticsearch/bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.0.0.RC1
 fi
 echo '==> System Overlay'
