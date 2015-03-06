@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
+#web: [ -b $ES_DATA_DIR ] && /usr/share/elasticsearch/bin/elasticsearch -Des.path.conf=$HOME/app -Des.http.port=$PORT -Des.path.data=$ES_DATA_DIR
 
 BUILD_DIR=$1
 
 cat << EOF
 ---
 default_process_types:
-  web: [ -b $ES_DATA_DIR ] && /usr/share/elasticsearch/bin/elasticsearch -Des.path.conf=$HOME/app -Des.http.port=$PORT -Des.path.data=$ES_DATA_DIR
+  web: [ -b $ES_DATA_DIR ] && sleep 1000000
 EOF
