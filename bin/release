@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-#web: "[ -b $ES_DATA_DIR ] && /usr/share/elasticsearch/bin/elasticsearch -Des.path.conf=$HOME/app -Des.http.port=$PORT -Des.path.data=$ES_DATA_DIR"
+# Make sure that our storage device is a mounted EBS volume
 
 BUILD_DIR=$1
 
 cat << EOF
 ---
 default_process_types:
-  web: "mountpoint -q $ES_DATA_DIR && sleep 1000000"
+  web: "mountpoint -q $ES_DATA_DIR && /usr/share/elasticsearch/bin/elasticsearch -Des.path.conf=$HOME/app -Des.http.port=$PORT -Des.path.data=$ES_DATA_DIR"
 EOF
