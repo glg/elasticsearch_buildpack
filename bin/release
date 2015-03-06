@@ -7,5 +7,5 @@ BUILD_DIR=$1
 cat << EOF
 ---
 default_process_types:
-  web: "[ -b $ES_DATA_DIR ] && sleep 1000000"
+  web: "mountpoint -q $ES_DATA_DIR && sleep 1000000"
 EOF
