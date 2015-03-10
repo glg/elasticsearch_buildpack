@@ -33,9 +33,9 @@ if which apt-get; then
   sudo apt-get install --yes oracle-java8-installer
   sudo apt-get install --yes oracle-java8-set-default
   echo '==> Elasticize'
-  sudo wget wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.deb || true
-  sudo dpkg --install elasticsearch-1.0.1.deb
-  sudo /usr/share/elasticsearch/bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.0.0.RC1
+  sudo wget wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.4.deb || true
+  sudo dpkg --install elasticsearch-1.4.4.deb
+  sudo /usr/share/elasticsearch/bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.4.1
 fi
 echo '==> System Overlay'
 #this if statement makes a lot more sense when you learn that I occasionally
