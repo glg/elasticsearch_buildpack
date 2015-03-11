@@ -4,8 +4,26 @@
 
 BUILD_DIR=$1
 
+ES_DATA_DIRS="/var/data/elastic/disk1 /var/data/elastic/disk2"
+
+# Make sure all the disk locations are block devices
+MOUNT_TESTS=""
+for dir in $(echo $ES_DATA_DIRS); do
+  MOUNT_TESTS="${MOUNT_TESTS} mountpoint -q $dir &&"
+done
+# Remove the trailing space and && ie, "\s&&"
+MOUNT_TESTS=${MOUNT_TESTS:0:(${#MOUNT_TESTS}-3)}
+
+# Make a list of the data dirs for usage by elastic
+DATA_DIRS=""
+for dir in $(echo $ES_DATA_DIRS); do
+  DATA_DIRS="${DATA_DIRS}$dir,"
+done
+# Remove the trailing comma
+DATA_DIRS=${DATA_DIRS:0:(${#DATA_DIRS}-1)}
+
 cat << EOF
 ---
 default_process_types:
-  web: "mountpoint -q $ES_DATA_DIR && /usr/share/elasticsearch/bin/elasticsearch -Des.path.conf=$HOME/app -Des.http.port=$PORT -Des.path.data=$ES_DATA_DIR"
+  web: "${MOUNT_TESTS} && /usr/share/elasticsearch/bin/elasticsearch -Des.path.conf=$HOME/app -Des.http.port=$PORT -Des.path.data=${DATA_DIRS}"
 EOF
