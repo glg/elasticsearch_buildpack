@@ -4,8 +4,6 @@
 
 BUILD_DIR=$1
 
-ES_DATA_DIRS="/var/data/elastic"
-
 # Make a list of the data dirs for usage by elastic
 DATA_DIRS=""
 for dir in $(echo $ES_DATA_DIRS); do
