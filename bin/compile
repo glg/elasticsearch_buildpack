@@ -28,10 +28,10 @@ if which apt-get; then
   sudo add-apt-repository --yes ppa:webupd8team/java
   sudo apt-get update
   #Auto accept installer prompts
-  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+  echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
   ##install
-  sudo apt-get install --yes oracle-java8-installer
-  sudo apt-get install --yes oracle-java8-set-default
+  sudo apt-get install --yes oracle-java7-installer
+  sudo apt-get install --yes oracle-java7-set-default
   echo '==> Elasticize'
   sudo wget wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.4.deb || true
   sudo dpkg --install elasticsearch-1.4.4.deb
