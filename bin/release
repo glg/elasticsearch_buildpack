@@ -4,7 +4,7 @@
 
 BUILD_DIR=$1
 
-ES_DATA_DIRS="/var/data/elastic/disk1 /var/data/elastic/disk2"
+ES_DATA_DIRS="/var/data/elastic/disk1 /var/data/elastic/disk2 /var/data/elastic/disk3"
 
 # Make sure all the disk locations are block devices
 MOUNT_TESTS=""
