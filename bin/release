@@ -4,23 +4,7 @@
 
 BUILD_DIR=$1
 
-ES_DATA_DIRS="/var/data/elastic/disk1 /var/data/elastic/disk2 /var/data/elastic/disk3"
 
-# Make sure all the disk locations are block devices
-MOUNT_TESTS=""
-for dir in $(echo $ES_DATA_DIRS); do
-  MOUNT_TESTS="${MOUNT_TESTS} mountpoint -q $dir &&"
-done
-# Remove the trailing space and && ie, "\s&&"
-MOUNT_TESTS=${MOUNT_TESTS:0:(${#MOUNT_TESTS}-3)}
-
-# Make a list of the data dirs for usage by elastic
-DATA_DIRS=""
-for dir in $(echo $ES_DATA_DIRS); do
-  DATA_DIRS="${DATA_DIRS}$dir,"
-done
-# Remove the trailing comma
-DATA_DIRS=${DATA_DIRS:0:(${#DATA_DIRS}-1)}
 
 cat << EOF
 ---
