@@ -5,7 +5,7 @@
 BUILD_DIR=$1
 
 # So crappy to have this here.. FIX THIS!!!  (to me.. from me)
-ES_DATA_DIRS="/var/data/elastic/disk1 /var/data/elastic/disk2 /var/data/elastic/disk3 /var/data/elastic/disk4 /var/data/elastic/disk5"
+ES_DATA_DIRS="/var/data/elastic/disk1 /var/data/elastic/disk2 /var/data/elastic/disk3 /var/data/elastic/disk4 /var/data/elastic/disk5 /var/data/elastic/disk6 /var/data/elastic/disk7 /var/data/elastic/disk8 /var/data/elastic/disk9 /var/data/elastic/disk10"
 
 # Make sure all the disk locations are block devices
 MOUNT_TESTS=""
