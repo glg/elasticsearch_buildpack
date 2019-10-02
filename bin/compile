@@ -23,15 +23,12 @@ done
 
 if which apt-get; then
   echo '==> Installing Oracle Java 1.8'
-  sudo apt-get update
-  sudo apt-get install -y software-properties-common
-  sudo add-apt-repository --yes ppa:webupd8team/java
-  sudo apt-get update
-  #Auto accept installer prompts
-  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-  ##install
-  sudo apt-get install --yes oracle-java8-installer
-  sudo apt-get install --yes oracle-java8-set-default
+	sudo apt-get update -y
+	sudo apt-get install -y software-properties-common wget lsof
+	sudo apt-get install -y openjdk-8-jdk
+	sudo apt-get update --fix-missing
+	sudo apt-get upgrade -y
+	sudo apt-get autoremove -y
   echo '==> Elasticize'
   wget -qO - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
   echo 'deb http://packages.elasticsearch.org/elasticsearch/1.3/debian stable main' | sudo tee /etc/apt/sources.list.d/elastic.list
