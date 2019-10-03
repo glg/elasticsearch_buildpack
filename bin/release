@@ -3,6 +3,8 @@
 
 BUILD_DIR=$1
 
+export ES_USE_IPV4="true"
+
 cat << EOF
 ---
 default_process_types:
